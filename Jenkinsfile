@@ -1,10 +1,15 @@
 pipeline {
   agent any
-  tools{
-      jdk: 11
+  environment {
+     NAME = "Jenkins"
+     MACHINE = "Linux"
+     JAVA_OPTS="-Xms128m -Xmx512m"
   }
   stages {
     stage('Compiling') {
+      environment{
+        AUTHOR='Apasoft'
+      }
       steps {
         echo "Compiling the code"
         sh 'javac Param.java'
