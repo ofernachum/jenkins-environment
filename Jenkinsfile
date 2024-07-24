@@ -1,17 +1,18 @@
 pipeline {
   agent any
   environment {
-     NAME = "Jenkins"
-     MACHINE = "Linux"
-     JAVA_OPTS="-Xms128m -Xmx512m"
+      NAME = "Jenkins"
+      MACHINE = "Linux"
+      JAVA_OPTS="-Xms128m -Xmx512m"
   }
   stages {
-    stage('Compiling') {
+    stage('Compiling') {    
       environment{
         AUTHOR='Apasoft'
-      }
+      }  
       steps {
         echo "Compiling the code"
+        echo "The author is ${AUTHOR}"
         sh 'javac Param.java'
       }
      }
@@ -25,8 +26,8 @@ pipeline {
     stage('display the machine name'){
       steps{
         echo "And here I display the name of the machine "
-        sh 'javac Maquina.java'
-        sh 'java Maquina ${MACHINE}'
+        sh 'javac Machine.java'
+        sh 'java Machine ${MACHINE}'
       }
     }
   }
