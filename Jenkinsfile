@@ -1,19 +1,19 @@
 pipeline {
   agent any
   environment {
-      NAME = "Jenkins"
-      MACHINE = "LinuX"
-      JAVA_OPTS="-Xms128m -Xmx512m"
+     NAME = "Jenkins"
+     MACHINE = "Linux"
   }
   stages {
-    stage('Compiling') {    
-      environment{
+    stage('Compiling') { 
+      environment {
         AUTHOR='Apasoft'
+        JAVA_OPTS="-Xms128m -Xmx512m"
       }  
       steps {
         echo "Compiling the code"
-        echo "The author is ${AUTHOR}"
         sh 'javac Param.java'
+        echo "The author is ${AUTHOR}"
       }
      }
     
