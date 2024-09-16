@@ -3,20 +3,19 @@ pipeline {
   environment {
      NAME = "Jenkins"
      MACHINE = "Linux"
+     JAVA_OPTS="-Xms128m -Xmx512m"
   }
   stages {
-    stage('Compiling') { 
+    stage('Compiling') {   
       environment {
         AUTHOR='Apasoft'
-        JAVA_OPTS="-Xms128m -Xmx512m"
-      }  
+      }    
       steps {
         echo "Compiling the code"
         sh 'javac Param.java'
-        echo "The author is ${AUTHOR}"
+        sh "The author is ${AUTHOR}"
       }
-     }
-    
+     }   
     stage('Execute'){
       steps{
         echo "Execute the program with a parameter "
