@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment {
      NAME = "Jenkins"
-     MACHINE = "Linux"
+     MACHINE = "Linux-Ubuntu"
      JAVA_OPTS="-Xms128m -Xmx512m"
   }
   stages {
